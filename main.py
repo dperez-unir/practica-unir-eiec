@@ -6,7 +6,7 @@ Organization: UNIR
 import os
 import sys
 
-DEFAULT_FILENAME = "words.txt"
+DEFAULT_FILENAME = "daniel.txt"
 DEFAULT_DUPLICATES = False
 
 
