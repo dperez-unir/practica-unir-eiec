@@ -2,7 +2,7 @@
 License: Apache
 Organization: UNIR
 """
-
+from googletrans import Translator
 import os
 import sys
 
@@ -19,6 +19,16 @@ def sort_list(items, ascending=True):
 
 def remove_duplicates_from_list(items):
     return list(set(items))
+
+def translate_to_english(text):
+    translator = Translator()
+    if text:
+        print(f"Original: {text}")
+        translation = translator.translate(text, src='es', dest='en')
+        print(f"Traducción: {translation.text}")
+        return translation.text
+    else:
+        return ''
 
 
 if __name__ == "__main__":
@@ -38,7 +48,7 @@ if __name__ == "__main__":
         word_list = []
         with open(file_path, "r") as file:
             for line in file:
-                word_list.append(line.strip())
+                word_list.append(translate_to_english(line.strip()))
     else:
         print(f"The file {filename} don't exist")
         word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff"]
